@@ -1,25 +1,50 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import TopBanner from './Blah';
+import MovieList from './Movies';
+import HomeInfo from './HomeInfo';
+import SiteHeader from './Header';
+import FullMovieList from './MoviesFull';
+
+function Home() {
+  return (
+    <div className="App">
+      <SiteHeader></SiteHeader>
+      <HomeInfo></HomeInfo>
+    </div>
+  );
+}
+
+function Podcasts() {
+  return (
+    <div className="App">
+      <SiteHeader></SiteHeader>
+      <h1>Welcome to the Podcast Page</h1>
+      <a href="https://baconsale.com">Check Out My Podcasts</a>
+    </div>
+  );
+}
+
+function MoviePage() {
+  return (
+    <div className="App">
+      <SiteHeader></SiteHeader>
+      <FullMovieList></FullMovieList>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/movies" element={<MoviePage></MoviePage>}></Route>
+        <Route path="/podcasts" element={<Podcasts></Podcasts>}></Route>
+      </Routes>
+    </Router>
   );
 }
 
