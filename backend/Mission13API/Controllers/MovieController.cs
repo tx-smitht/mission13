@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Mission13API.Data;
 
 namespace Mission13API.Controllers
 {
@@ -11,13 +12,16 @@ namespace Mission13API.Controllers
 
         public MovieController(MovieDbContext dbContext)
         {
-            _foodService = foodService;
             context = dbContext;
         }
 
-        public IActionResult Index()
+        public IEnumerable<Movie> Get()
         {
-            return View();
+            // Returns an array
+
+            var x = context.Movies.ToArray();
+
+            return context.Movies.ToArray();
         }
     }
 }
