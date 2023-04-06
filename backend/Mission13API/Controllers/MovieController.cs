@@ -17,7 +17,8 @@ namespace Mission13API.Controllers
 
         public IEnumerable<Movie> Get()
         {
-            // Returns an array
+            // Returns an array of only movies that have been edited
+            // in alphabetical order. 
 
             var x = context.Movies.ToArray();
 
