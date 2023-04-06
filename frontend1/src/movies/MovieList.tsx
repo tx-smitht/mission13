@@ -4,7 +4,7 @@ function MovieList() {
   const [movieData, setMovieData] = useState<Movie[]>([]);
   useEffect(() => {
     const FetchMovies = async () => {
-      const rsp = await fetch('https://localhost:7297/movie');
+      const rsp = await fetch('https://localhost:4000/movie');
       const temp = await rsp.json();
       setMovieData(temp);
     };
@@ -19,17 +19,27 @@ function MovieList() {
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th>Title</th>
+              <th>Movie ID</th>
               <th>Category</th>
+              <th>Title</th>
+              <th>Director</th>
               <th>Rating</th>
+              <th>Edited</th>
+              <th>Lent To</th>
+              <th>Notes</th>
             </tr>
           </thead>
           <tbody>
             {movieData.map((m) => (
               <tr key={m.movieId}>
-                <td>{m.title}</td>
+                <td>{m.movieId}</td>
                 <td>{m.category}</td>
+                <td>{m.title}</td>
+                <td>{m.director}</td>
                 <td>{m.rating}</td>
+                <td>{m.edited}</td>
+                <td>{m.lentTo}</td>
+                <td>{m.notes}</td>
               </tr>
             ))}
           </tbody>

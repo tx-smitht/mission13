@@ -21,7 +21,7 @@ namespace Mission13API.Controllers
 
             var x = context.Movies.ToArray();
 
-            return context.Movies.ToArray();
+            return context.Movies.Where(x=>x.Edited == "Yes").OrderBy(x=> x.Title).ToArray();
         }
     }
 }
