@@ -3,10 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import TopBanner from './Blah';
-import MovieList from './Movies';
+import MovieList from './movies/MovieList';
 import HomeInfo from './HomeInfo';
 import SiteHeader from './Header';
-import FullMovieList from './MoviesFull';
 
 function Home() {
   return (
@@ -31,7 +30,7 @@ function MoviePage() {
   return (
     <div className="App">
       <SiteHeader></SiteHeader>
-      <FullMovieList></FullMovieList>
+      <MovieList></MovieList>
     </div>
   );
 }
